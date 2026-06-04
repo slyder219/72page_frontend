@@ -510,6 +510,21 @@ h3 {
   overflow: auto;
 }
 
+.auth-status-log {
+  margin: 0.8rem 0 0;
+  border: 1px solid var(--line-soft);
+  border-radius: 10px;
+  background: #f4fafc;
+  padding: 0.6rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-size: 0.76rem;
+  line-height: 1.4;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  max-height: 170px;
+  overflow: auto;
+}
+
 .contact-grid {
   display: grid;
   grid-template-columns: 1.1fr 1fr;

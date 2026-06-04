@@ -20,6 +20,7 @@
     '    <span id="auth-status-note" class="auth-status-note">Initial check uses GET.</span>',
     "  </div>",
     '  <div id="auth-status-summary" class="auth-status-summary">Awaiting first response...</div>',
+    '  <pre id="auth-status-log" class="auth-status-log">Initializing auth status widget...\n</pre>',
     '  <pre id="auth-status-output" class="auth-status-output">Waiting to run auth status check...</pre>',
     "</div>"
   ].join("\n");
@@ -29,7 +30,28 @@
   const outputEl = document.getElementById("auth-status-output");
   const noteEl = document.getElementById("auth-status-note");
   const summaryEl = document.getElementById("auth-status-summary");
+  const logEl = document.getElementById("auth-status-log");
   const LOG_PREFIX = "[auth-status]";
+
+  function logEvent(level, event, data) {
+    const timestamp = new Date().toISOString();
+    const payload = data || {};
+    const line = timestamp + " " + event + " " + JSON.stringify(payload);
+
+    if (level === "error") {
+      console.error(LOG_PREFIX, event, payload);
+    } else {
+      console.info(LOG_PREFIX, event, payload);
+    }
+
+    if (logEl) {
+      logEl.textContent += line + "\n";
+      if (logEl.textContent.length > 12000) {
+        logEl.textContent = logEl.textContent.slice(-12000);
+      }
+      logEl.scrollTop = logEl.scrollHeight;
+    }
+  }
 
   function setBadge(label, type) {
     badgeEl.textContent = label;
@@ -117,7 +139,7 @@
 
   async function runCheck(method) {
     const startedAt = new Date().toISOString();
-    console.info(LOG_PREFIX, "request:start", { method, url: AUTH_STATUS_URL, startedAt });
+    logEvent("info", "request:start", { method, url: AUTH_STATUS_URL, startedAt });
 
     setBadge("Running", "running");
     rerunButton.disabled = true;
@@ -130,11 +152,10 @@
         method,
         headers: {
           Accept: "application/json, text/plain;q=0.9"
-        },
-        body: method === "POST" ? JSON.stringify({ trigger: "homepage-rerun" }) : undefined
+        }
       });
 
-      console.info(LOG_PREFIX, "request:response", {
+      logEvent("info", "request:response", {
         method,
         status: response.status,
         statusText: response.statusText,
@@ -150,7 +171,7 @@
         payload = rawText || "No response body";
       }
 
-      console.info(LOG_PREFIX, "request:payload", {
+      logEvent("info", "request:payload", {
         method,
         payloadType: typeof payload,
         authenticated: payload && typeof payload === "object" ? payload.authenticated : undefined
@@ -169,7 +190,7 @@
       outputEl.textContent = prettyPayload(summary);
       setBadge(response.ok ? "OK" : "Error", response.ok ? "success" : "error");
     } catch (error) {
-      console.error(LOG_PREFIX, "request:error", {
+      logEvent("error", "request:error", {
         method,
         message: error && error.message ? error.message : String(error)
       });
@@ -186,7 +207,19 @@
   }
 
   rerunButton.addEventListener("click", function () {
+    logEvent("info", "ui:rerun-click", {
+      triggeredAt: new Date().toISOString(),
+      action: "rerun-auth-status"
+    });
     runCheck("GET");
+  });
+
+  logEvent("info", "ui:widget-mounted", {
+    endpoint: AUTH_STATUS_URL
+  });
+
+  logEvent("info", "ui:rerun-handler-bound", {
+    hasButton: Boolean(rerunButton)
   });
 
   runCheck("GET");
