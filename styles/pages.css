@@ -92,13 +92,3 @@
   --service-hero-image: url("../assets/photos/warehouse-2048x1365.jpg");
 }
 
-.reveal {
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 420ms ease, transform 420ms ease;
-}
-
-.reveal.is-visible {
-  opacity: 1;
-  transform: none;
-}

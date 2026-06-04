@@ -1,5 +1,4 @@
 let menuBound = false;
-let revealBound = false;
 let formBound = false;
 let countUpBound = false;
 
@@ -86,27 +85,6 @@ function initSiteUi() {
     });
 
     menuBound = true;
-  }
-
-  if (!revealBound && "IntersectionObserver" in window) {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-
-    document.querySelectorAll(".section").forEach((section, index) => {
-      section.classList.add("reveal");
-      section.style.transitionDelay = `${index * 60}ms`;
-      observer.observe(section);
-    });
-
-    revealBound = true;
   }
 
   if (!countUpBound) {
