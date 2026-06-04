@@ -216,6 +216,28 @@
   background-image: url("../assets/photos/data-entry-1.jpg");
 }
 
+.service-card-3pl::before {
+  background-image: url("../assets/photos/warehouse-2048x1365.jpg");
+}
+
+.service-card-featured {
+  grid-column: span 2;
+  border-color: var(--brand-glow);
+  box-shadow: 0 12px 28px rgba(13, 187, 250, 0.16);
+}
+
+.service-card-featured::before {
+  height: 5rem;
+}
+
+.service-card-featured h3 {
+  color: var(--brand-strong);
+}
+
+.service-card-featured p {
+  font-size: 1.04rem;
+}
+
 .image-break {
   padding-top: 1rem;
   padding-bottom: 1rem;

@@ -81,7 +81,12 @@ function initSiteUi() {
         formStatus.textContent = "Opening your email app to send this message...";
       }
 
-      window.location.href = `mailto:hello@72degreeseast.com?subject=${subject}&body=${body}`;
+      const recipientEmail =
+        typeof window.siteMetadata?.email === "string" && window.siteMetadata.email.trim()
+          ? window.siteMetadata.email.trim()
+          : "hello@72degreeseast.com";
+
+      window.location.href = `mailto:${recipientEmail}?subject=${subject}&body=${body}`;
     });
 
     formBound = true;

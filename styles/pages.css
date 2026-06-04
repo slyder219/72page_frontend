@@ -88,6 +88,10 @@
   --service-hero-image: url("../assets/photos/data-entry-1.jpg");
 }
 
+.service-3pl {
+  --service-hero-image: url("../assets/photos/warehouse-2048x1365.jpg");
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(10px);
