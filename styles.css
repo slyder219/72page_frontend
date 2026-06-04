@@ -370,6 +370,25 @@ h3 {
   box-shadow: var(--shadow-sm);
 }
 
+.service-gallery {
+  padding-top: 0.4rem;
+}
+
+.service-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(230px, 1fr));
+  gap: 0.8rem;
+}
+
+.service-gallery-grid img {
+  width: 100%;
+  height: clamp(190px, 28vw, 260px);
+  object-fit: cover;
+  border-radius: var(--radius);
+  border: 1px solid var(--line-soft);
+  box-shadow: var(--shadow-sm);
+}
+
 .contact {
   border: 1px solid #b4eafd;
   border-radius: var(--radius-lg);
@@ -736,6 +755,10 @@ textarea:focus {
   }
 
   .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .service-gallery-grid {
     grid-template-columns: 1fr;
   }
 }
