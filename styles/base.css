@@ -1,0 +1,108 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  color-scheme: light;
+}
+
+body {
+  position: relative;
+  isolation: isolate;
+  min-height: 100svh;
+  font-family: var(--font-sans);
+  color: var(--ink);
+  line-height: 1.58;
+  background:
+    radial-gradient(1200px 560px at 12% -8%, rgba(13, 187, 250, 0.2), transparent 52%),
+    radial-gradient(900px 460px at 92% -6%, rgba(8, 150, 200, 0.14), transparent 54%),
+    linear-gradient(180deg, #f5f9f9 0%, #f2f7f7 42%, #edf4f4 100%);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.13;
+  background: url("../assets/photos/warehouse-2048x1365.jpg") center / cover no-repeat;
+}
+
+main {
+  display: block;
+  padding-top: 0.75rem;
+}
+
+a {
+  color: inherit;
+}
+
+p {
+  font-size: 1.04rem;
+  font-weight: 500;
+  line-height: 1.72;
+  color: #31464b;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-serif);
+  line-height: 1.12;
+  margin-top: 0;
+  letter-spacing: 0.01em;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
+  margin-bottom: 0.7rem;
+  max-width: 16ch;
+}
+
+.page-hero h1 {
+  max-width: 24ch;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 3vw, 2.4rem);
+  margin-bottom: 0.7rem;
+}
+
+h3 {
+  font-size: 1.24rem;
+  margin-bottom: 0.5rem;
+}
+
+.lead {
+  max-width: 64ch;
+  font-size: 1.04rem;
+  color: var(--ink-muted);
+}
+
+.eyebrow {
+  margin: 0 0 0.55rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--brand-strong);
+}
+
+.breadcrumb {
+  margin: 0 0 0.8rem;
+  font-size: 0.98rem;
+  font-weight: 500;
+  color: var(--ink-muted);
+}
+
+.breadcrumb a {
+  color: var(--brand-strong);
+  text-decoration: none;
+}

@@ -1,13 +1,12 @@
-let initialized = false;
+let menuBound = false;
+let revealBound = false;
+let formBound = false;
 
 function initSiteUi() {
-  if (initialized) return;
-  initialized = true;
-
   const menuButton = document.querySelector(".menu-toggle");
   const nav = document.querySelector(".site-nav");
 
-  if (menuButton && nav) {
+  if (!menuBound && menuButton && nav) {
     const closeMenu = () => {
       menuButton.setAttribute("aria-expanded", "false");
       nav.classList.remove("open");
@@ -30,9 +29,11 @@ function initSiteUi() {
         closeMenu();
       }
     });
+
+    menuBound = true;
   }
 
-  if ("IntersectionObserver" in window) {
+  if (!revealBound && "IntersectionObserver" in window) {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -49,12 +50,14 @@ function initSiteUi() {
       section.style.transitionDelay = `${index * 60}ms`;
       observer.observe(section);
     });
+
+    revealBound = true;
   }
 
   const contactForm = document.querySelector(".form");
   const formStatus = document.querySelector("#form-status");
 
-  if (contactForm instanceof HTMLFormElement) {
+  if (!formBound && contactForm instanceof HTMLFormElement) {
     contactForm.addEventListener("submit", (event) => {
       event.preventDefault();
 
@@ -80,6 +83,8 @@ function initSiteUi() {
 
       window.location.href = `mailto:hello@72degreeseast.com?subject=${subject}&body=${body}`;
     });
+
+    formBound = true;
   }
 }
 

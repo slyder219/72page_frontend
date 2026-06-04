@@ -1,0 +1,100 @@
+.page-hero {
+  padding-top: clamp(3.8rem, 6vw, 4.9rem);
+  padding-bottom: 2.25rem;
+}
+
+.service-detail {
+  --service-hero-image: url("../assets/photos/warehouse-2048x1365.jpg");
+}
+
+.service-detail .split {
+  grid-template-columns: 1fr;
+  gap: 0.45rem;
+}
+
+.service-detail .split h2 {
+  margin-bottom: 0.18rem;
+}
+
+.service-detail .page-hero {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  padding: clamp(1.9rem, 4vw, 3rem);
+  background: var(--service-hero-image) center / cover no-repeat;
+  box-shadow: var(--shadow-md);
+}
+
+.service-detail .page-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(8, 30, 44, 0.66), rgba(8, 30, 44, 0.26));
+}
+
+.service-detail .page-hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+.service-detail .page-hero .breadcrumb,
+.service-detail .page-hero h1,
+.service-detail .page-hero .lead {
+  display: block;
+  max-width: min(100%, 65ch);
+  margin-left: 0;
+  color: #f7fcff;
+  text-shadow: 0 1px 2px rgba(8, 24, 34, 0.4);
+}
+
+.service-detail .page-hero .breadcrumb {
+  display: none;
+}
+
+.service-detail .page-hero h1 {
+  margin-bottom: 0.65rem;
+}
+
+.service-detail .page-hero .lead {
+  margin-bottom: 0;
+  color: #e9f7ff;
+}
+
+.service-food {
+  --service-hero-image: url("../assets/photos/service-food.jpg");
+}
+
+.service-beauty {
+  --service-hero-image: url("../assets/photos/service-beauty.jpg");
+}
+
+.service-quality {
+  --service-hero-image: url("../assets/photos/service-qc.webp");
+}
+
+.service-outdoor {
+  --service-hero-image: url("../assets/photos/fishing-1.jpg");
+}
+
+.service-pet {
+  --service-hero-image: url("../assets/photos/pet-supplies-1.jpg");
+}
+
+.service-packing {
+  --service-hero-image: url("../assets/photos/package-1.jpg");
+}
+
+.service-data {
+  --service-hero-image: url("../assets/photos/data-entry-1.jpg");
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 420ms ease, transform 420ms ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}

@@ -1,0 +1,35 @@
+:root {
+  --font-sans: "Space Grotesk", sans-serif;
+  --font-serif: "Fraunces", serif;
+
+  --bg: #f4f8f8;
+  --surface: #ffffff;
+  --surface-soft: #edf4f4;
+  --surface-strong: #e2ecec;
+
+  --ink: #1a2729;
+  --ink-muted: #4f6266;
+
+  --brand: #0DBBFA;
+  --brand-strong: #0896c8;
+  --brand-soft: #E6F8FE;
+  --brand-glow: #c6ecec;
+
+  --accent: #0DBBFA;
+  --accent-strong: #0896c8;
+  --accent-soft: #E6F8FE;
+
+  --line: #c7d5d6;
+  --line-soft: #dce5e6;
+
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+
+  --shadow-sm: 0 8px 20px rgba(19, 55, 58, 0.08);
+  --shadow-md: 0 18px 42px rgba(16, 49, 52, 0.14);
+
+  --container-width: 1120px;
+  --container: min(92vw, var(--container-width));
+  --container-pad: max(4vw, calc((100vw - var(--container-width)) / 2));
+}
