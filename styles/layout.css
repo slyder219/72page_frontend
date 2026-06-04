@@ -9,7 +9,7 @@
 }
 
 .section-hero {
-  padding-top: clamp(4.2rem, 7vw, 6.2rem);
+  padding-top: 0;
 }
 
 .topbar {
