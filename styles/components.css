@@ -144,6 +144,47 @@
   padding-bottom: 2rem;
 }
 
+.metrics-band {
+  margin-top: 1.35rem;
+}
+
+.home-hero .metrics-band {
+  padding: 0;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(120px, 1fr));
+  gap: 0.8rem;
+}
+
+.metric-card {
+  text-align: center;
+  padding: 0.35rem 0.2rem;
+}
+
+.home-hero .metric-card {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.metric-value {
+  margin: 0;
+  font-size: clamp(1.9rem, 4.8vw, 4rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: #39a6e8;
+}
+
+.metric-label {
+  margin: 0.35rem 0 0;
+  font-size: clamp(0.95rem, 1.6vw, 1.22rem);
+  font-weight: 600;
+  color: #041018;
+}
+
 .home-about .card {
   padding: 0;
   border: 0;

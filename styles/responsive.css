@@ -3,6 +3,10 @@
     grid-template-columns: 1fr 1fr;
   }
 
+  .metrics-grid {
+    grid-template-columns: repeat(3, minmax(140px, 1fr));
+  }
+
   .split,
   .contact-grid {
     grid-template-columns: 1fr;
@@ -42,6 +46,10 @@
   .service-gallery-grid {
     grid-template-columns: 1fr;
   }
+
+  .metrics-grid {
+    grid-template-columns: repeat(2, minmax(130px, 1fr));
+  }
 }
 
 @media (max-width: 580px) {
@@ -53,6 +61,10 @@
   }
 
   .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .metrics-grid {
     grid-template-columns: 1fr;
   }
 

@@ -1,6 +1,61 @@
 let menuBound = false;
 let revealBound = false;
 let formBound = false;
+let countUpBound = false;
+
+function formatCountValue(value, format, suffix) {
+  let displayValue;
+
+  if (format === "compact") {
+    displayValue = new Intl.NumberFormat("en-US", {
+      notation: "compact",
+      compactDisplay: "short",
+      maximumFractionDigits: 0,
+    }).format(value);
+  } else {
+    displayValue = new Intl.NumberFormat("en-US", {
+      maximumFractionDigits: 0,
+    }).format(value);
+  }
+
+  return `${displayValue}${suffix}`;
+}
+
+function animateCountUp(element) {
+  if (element.dataset.counted === "true") return;
+  element.dataset.counted = "true";
+
+  const target = Number.parseInt(element.dataset.target || "0", 10);
+  const suffix = element.dataset.suffix || "";
+  const format = element.dataset.format || "plain";
+
+  if (!Number.isFinite(target) || target <= 0) {
+    element.textContent = formatCountValue(0, format, suffix);
+    return;
+  }
+
+  const duration = 1600;
+  const startTime = performance.now();
+
+  const step = (now) => {
+    const progress = Math.min((now - startTime) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const current = Math.round(target * eased);
+
+    element.textContent = formatCountValue(current, format, suffix);
+
+    if (progress < 1) {
+      window.requestAnimationFrame(step);
+    }
+  };
+
+  window.requestAnimationFrame(step);
+}
+
+function isInViewport(element) {
+  const rect = element.getBoundingClientRect();
+  return rect.top < window.innerHeight * 0.95 && rect.bottom > 0;
+}
 
 function initSiteUi() {
   const menuButton = document.querySelector(".menu-toggle");
@@ -52,6 +107,40 @@ function initSiteUi() {
     });
 
     revealBound = true;
+  }
+
+  if (!countUpBound) {
+    const counters = Array.from(document.querySelectorAll(".countup"));
+
+    if (counters.length > 0) {
+      if ("IntersectionObserver" in window) {
+        const counterObserver = new IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              animateCountUp(entry.target);
+              observer.unobserve(entry.target);
+            });
+          },
+          { threshold: 0.35 }
+        );
+
+        counters.forEach((counter) => {
+          if (isInViewport(counter)) {
+            animateCountUp(counter);
+            return;
+          }
+
+          counterObserver.observe(counter);
+        });
+      } else {
+        counters.forEach((counter) => {
+          animateCountUp(counter);
+        });
+      }
+
+      countUpBound = true;
+    }
   }
 
   const contactForm = document.querySelector(".form");
