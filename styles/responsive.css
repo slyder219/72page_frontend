@@ -48,6 +48,23 @@
     padding: 1.35rem max(1rem, 4vw);
   }
 
+  body[data-page="services"] .cards {
+    grid-template-columns: 1fr;
+  }
+
+  body[data-page="services"] .service-card-featured {
+    grid-column: auto;
+  }
+
+  body[data-page="services"] .service-card {
+    padding-top: 5rem;
+  }
+
+  body[data-page="services"] .service-card::before,
+  body[data-page="services"] .service-card-featured::before {
+    height: 3.8rem;
+  }
+
   .stats,
   .auth-status-grid,
   .auth-status-pills,
