@@ -19,20 +19,7 @@ body {
   font-family: var(--font-sans);
   color: var(--ink);
   line-height: 1.58;
-  background:
-    radial-gradient(1200px 560px at 12% -8%, rgba(13, 187, 250, 0.2), transparent 52%),
-    radial-gradient(900px 460px at 92% -6%, rgba(8, 150, 200, 0.14), transparent 54%),
-    linear-gradient(180deg, #f5f9f9 0%, #f2f7f7 42%, #edf4f4 100%);
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  opacity: 0.13;
-  background: url("../assets/photos/warehouse-2048x1365.jpg") center / cover no-repeat;
+  background: linear-gradient(180deg, #f7fbfc 0%, #eef5f7 100%);
 }
 
 main {

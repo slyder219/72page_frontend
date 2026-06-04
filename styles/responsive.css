@@ -40,6 +40,14 @@
     grid-template-columns: 1fr;
   }
 
+  .home-capabilities .capability-row {
+    gap: 0.6rem;
+  }
+
+  .home-capabilities {
+    padding: 1.35rem max(1rem, 4vw);
+  }
+
   .stats,
   .auth-status-grid,
   .auth-status-pills,
