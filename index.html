@@ -3,10 +3,100 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Health Check</title>
+  <title>72 Degrees East | Landing</title>
+  <meta name="description" content="Lightweight recreated landing page for 72 Degrees East." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Fraunces:opsz,wght@9..144,500;9..144,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <h1>OK</h1>
-  <p>/health is up.</p>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <span>+1 609 436 0132</span>
+      <span>1800 E State St Suite 167A</span>
+    </div>
+  </div>
+  <header class="site-header">
+    <a class="brand" href="#top">72 Degrees East</a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav id="site-nav" class="site-nav">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#shop">Shop</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero section">
+      <p class="eyebrow">Global Trading and Distribution</p>
+      <h1>Pioneering Distribution Across Emerging Economies</h1>
+      <p class="lead">72 Degrees East is a dynamic international business house focused on trading, distribution, and business development across emerging markets in the Middle East, Africa, and the Indian sub-continent.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#about">About Us</a>
+        <a class="btn btn-ghost" href="#services">Our Services</a>
+      </div>
+      <ul class="stats" aria-label="Quick highlights">
+        <li><strong>US HQ</strong><span>international operations</span></li>
+        <li><strong>Cross-border</strong><span>shipping platform</span></li>
+        <li><strong>B2B Focus</strong><span>distribution and sourcing</span></li>
+      </ul>
+    </section>
+
+    <section id="about" class="section split">
+      <div>
+        <p class="eyebrow">About</p>
+        <h2>About 72 Degrees East Inc</h2>
+      </div>
+      <p>
+        We help businesses simplify international trade with practical sourcing, distribution, and fulfillment support. Our team is committed to speed, clarity, and dependable execution for cross-border operations.
+      </p>
+    </section>
+
+    <section id="services" class="section">
+      <p class="eyebrow">Our Capabilities</p>
+      <h2>What do we do?</h2>
+      <div class="cards">
+        <article class="card"><h3>Food and Beverage</h3><p>Distribution, import, and export support for quality food and non-food products.</p></article>
+        <article class="card"><h3>Health and Beauty</h3><p>Sourcing and distribution support for health and beauty products in global markets.</p></article>
+        <article class="card"><h3>Outdoor Sports</h3><p>Supply support for hunting, fishing, and performance outdoor categories.</p></article>
+        <article class="card"><h3>Pet Supplies</h3><p>Product distribution services for pet care categories across retail and wholesale channels.</p></article>
+        <article class="card"><h3>Quality Control Services</h3><p>Inspection-led quality assurance to improve compliance and operational consistency.</p></article>
+        <article class="card"><h3>Packing Services</h3><p>Professional packing teams to support warehousing, logistics, and delivery readiness.</p></article>
+        <article class="card"><h3>Data Entry Services</h3><p>Accurate and reliable data processing to keep records clean and operations streamlined.</p></article>
+      </div>
+    </section>
+
+    <section id="shop" class="section split">
+      <div>
+        <p class="eyebrow">Shop</p>
+        <h2>Featured Categories</h2>
+      </div>
+      <ul class="category-list">
+        <li>Fishing</li>
+        <li>Knives</li>
+        <li>Fixed Knives</li>
+        <li>Cart and Checkout</li>
+      </ul>
+    </section>
+
+    <section id="contact" class="section contact">
+      <p class="eyebrow">Contact</p>
+      <h2>Get in touch with us!</h2>
+      <p class="lead">Talk to our team about distribution, sourcing, quality control, or packing support.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="/contact/">Contact Us</a>
+        <a class="btn btn-ghost" href="tel:+16094360132">+1 609 436 0132</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Copyright 2026 © 72 Degrees East Inc</p>
+  </footer>
+
+  <script src="main.js"></script>
 </body>
 </html>
