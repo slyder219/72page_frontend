@@ -1,2 +1,4 @@
 site-clones
 clone_site.py
+node_modules/
+dist/
